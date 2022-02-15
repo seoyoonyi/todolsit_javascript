@@ -104,10 +104,3 @@ for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
 for (let i = 0; i < completedTasksHolder.children.length; i++) {
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
-
-//함수 스코프
-// const bb = () => {
-//   return name
-// }
-// const name = "hi"
-// console.log(bb())
