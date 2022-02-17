@@ -91,8 +91,10 @@ const deleteTask = (e) => {
 };
 
 /* 이벤트  */
+//클릭할 시 addTask함수 실행
 addButton.addEventListener('click', addTask);
 
+//일 완료할 시 complete로 이동
 for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
   newTaskGroup.createEvents(
     incompleteTaskHolder.children[i],
@@ -100,6 +102,7 @@ for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
   );
 }
 
+//일 미완료할 시 todo로 이동
 for (let i = 0; i < completedTasksHolder.children.length; i++) {
   newTaskGroup.createEvents(
     completedTasksHolder.children[i],
