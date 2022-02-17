@@ -41,8 +41,8 @@ const addTask = function () {
 };
 
 //일 편집
-const editTask = function () {
-  const listItem = this.parentNode;
+const editTask = (e) => {
+  const listItem = e.target.parentNode;
   const editInput = listItem.querySelector('input[type=text]');
   const label = listItem.querySelector('label');
   const button = listItem.getElementsByTagName('button')[0];
@@ -59,28 +59,24 @@ const editTask = function () {
 };
 
 //일 삭제
-const deleteTask = function () {
-  const listItem = this.parentNode;
+const deleteTask = (e) => {
+  const listItem = e.target.parentNode;
   const ul = listItem.parentNode;
   ul.removeChild(listItem);
 };
 
 //일 완료된 상태
-const taskCompleted = function () {
-  const listItem = this.parentNode;
+const taskCompleted = (e) => {
+  const listItem = e.target.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 };
 
 //일 완료
-const taskIncomplete = function () {
-  const listItem = this.parentNode;
+const taskIncomplete = (e) => {
+  const listItem = e.target.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
-};
-
-const ajaxRequest = function () {
-  console.log('AJAX request');
 };
 
 /* 이벤트 */
@@ -95,7 +91,6 @@ const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 };
 
 addButton.addEventListener('click', addTask);
-addButton.addEventListener('click', ajaxRequest);
 
 for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
   bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
